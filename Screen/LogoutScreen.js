@@ -1,7 +1,10 @@
 import { useNavigation } from '@react-navigation/core'
+import { DrawerContentScrollView } from '@react-navigation/drawer';
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { auth } from '../../firebase'
+import { auth } from '../firebase'
+import DrawerNavigatorRoutes from './DrawerNavigationRoutes';
+import Login from './LoginScreen';
 
 const LogoutScreen = () => {
   const navigation = useNavigation()
@@ -10,8 +13,7 @@ const LogoutScreen = () => {
     auth
       .signOut()
       .then(() => {
-        navigation.replace("LoginScreen")
-        console.log('Signed out', user.email);
+        navigation.replace("Auth")
       })
       .catch(error => alert(error.message))
   }
