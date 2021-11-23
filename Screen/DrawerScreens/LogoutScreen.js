@@ -10,8 +10,7 @@ const LogoutScreen = () => {
     auth
       .signOut()
       .then(() => {
-        navigation.replace("LoginScreen")
-        console.log('Signed out', user.email);
+        navigation.replace("Auth")
       })
       .catch(error => alert(error.message))
   }

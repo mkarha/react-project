@@ -19,7 +19,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import SplashScreen from '../SplashScreen';
 //import { back } from 'react-native/Libraries/Animated/src/Easing';
 import LoginScreen from '../LoginScreen';
-import SettingsScreen from '../SettingsScreen';
+import SettingsScreen from '../DrawerScreens/SettingsScreen';
 
 const CustomSidebarMenu = (props) => {
   return (

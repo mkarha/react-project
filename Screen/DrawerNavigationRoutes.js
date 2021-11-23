@@ -9,9 +9,9 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
 // Import Screens
-import HomeScreen from './HomeScreen';
-import SettingsScreen from './SettingsScreen';
-import LogoutScreen from './LogoutScreen';
+import HomeScreen from './DrawerScreens/HomeScreen';
+import SettingsScreen from './DrawerScreens/SettingsScreen';
+import LogoutScreen from './DrawerScreens/LogoutScreen';
 import LoginScreen from './LoginScreen';
 import CustomSidebarMenu from './Components/CustomSidebarMenu';
 import NavigationDrawerHeader from './Components/NavigationDrawerHeader';
