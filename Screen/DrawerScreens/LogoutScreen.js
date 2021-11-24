@@ -2,6 +2,9 @@ import { useNavigation } from '@react-navigation/core'
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { auth } from '../../firebase'
+import {
+  ImageBackground,
+} from 'react-native'
 
 const LogoutScreen = () => {
   const navigation = useNavigation()
@@ -16,7 +19,10 @@ const LogoutScreen = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <ImageBackground
+          style={styles.container}
+          source={require('../../Image/bye.png')}  
+        >
       <Text>Email: {auth.currentUser?.email}</Text>
       <TouchableOpacity
         onPress={handleSignOut}
@@ -24,7 +30,7 @@ const LogoutScreen = () => {
       >
         <Text style={styles.buttonText}>Sign out</Text>
       </TouchableOpacity>
-    </View>
+    </ImageBackground>
   )
 }
 

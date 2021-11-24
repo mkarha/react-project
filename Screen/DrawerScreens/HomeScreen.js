@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
-//import { nativeViewProps } from 'react-native-gesture-handler/lib/typescript/handlers/NativeViewGestureHandler';
 import Task from '../Components/Task';
 import {
   ImageBackground,
@@ -23,10 +22,10 @@ export default function App() {
   }
 
   return (
-    <ImageBackground
-          style={styles.container}
-          source={require('../../Image/elephant.png')}  
-        >
+      <ImageBackground
+        style={styles.container}
+        source={require('../../Image/elephant.png')}  
+      >
     
       {/* Added this scroll view to enable scrolling when list gets longer than the page */}
       <ScrollView
