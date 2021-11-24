@@ -8,6 +8,8 @@ import {
     TextInput, 
     TouchableOpacity, 
     View,
+    Image,
+    ImageBackground,
  } from 'react-native'
 
 import { auth } from '../firebase'
@@ -50,9 +52,13 @@ const LoginScreen = () => {
     }
 
     return (
-        <SafeAreaView
+        /*<SafeAreaView
             style={styles.container}
             behavior="padding"
+        >*/
+        <ImageBackground
+          style={styles.container}
+          source={require('../Image/elephant.png')}  
         >
             <Text>Login Screen</Text>
             <View style={styles.inputContainer}> 
@@ -85,13 +91,22 @@ const LoginScreen = () => {
                     <Text style={styles.button, styles.buttonOutlineText}>Register</Text>
                 </TouchableOpacity>
             </View>
-        </SafeAreaView>
+            </ImageBackground>
+        //</SafeAreaView>
     )
 }
 
 export default LoginScreen
 
 const styles = StyleSheet.create({
+  body: {
+    flex: 1,
+    //flexDirection: 'column-reverse',
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    //justifyContent: 'flex-start',
+  },
+  
     container: {
         flex: 1,
         justifyContent: 'center',

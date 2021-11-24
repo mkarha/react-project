@@ -1,4 +1,4 @@
-//import 'react-native-gesture-handler';
+import 'react-native-gesture-handler';
 
 // Import React and Component
 import React from 'react';
