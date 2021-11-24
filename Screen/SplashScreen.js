@@ -1,6 +1,3 @@
-// Example of Splash, Login and Sign Up in React Native
-// https://aboutreact.com/react-native-login-and-signup/
-
 // Import React and Component
 import React, {useState, useEffect} from 'react';
 import {
@@ -33,7 +30,7 @@ const SplashScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../Image/aboutreact.png')}
+        source={require('../Image/elephant.png')}
         style={{width: '90%', resizeMode: 'contain', margin: 30}}
       />
       <ActivityIndicator
