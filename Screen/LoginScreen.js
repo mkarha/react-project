@@ -18,6 +18,7 @@ const LoginScreen = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [username, setUsername] = useState('')
 
     const navigation = useNavigation()
 
@@ -62,6 +63,12 @@ const LoginScreen = () => {
         >
             <Text>Login Screen</Text>
             <View style={styles.inputContainer}> 
+            <TextInput
+                    placeholder="Username"
+                    value={username}
+                    onChangeText={text => setUsername(text)}
+                    style={styles.input}
+                />
                 <TextInput
                     placeholder="Email"
                     value={email}
@@ -99,19 +106,11 @@ const LoginScreen = () => {
 export default LoginScreen
 
 const styles = StyleSheet.create({
-  body: {
-    flex: 1,
-    //flexDirection: 'column-reverse',
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    //justifyContent: 'flex-start',
-  },
-  
-    container: {
-        flex: 1,
+  container: {
+        flex: 1, 
         justifyContent: 'center',
         alignItems: 'center',
-    },
+  },
     inputContainer: {
         width: '80%',
     },
