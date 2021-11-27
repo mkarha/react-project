@@ -93,6 +93,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginTop: 60,
     marginBottom: 150,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+
   },
   items: {
     marginTop: 30,
