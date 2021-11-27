@@ -76,6 +76,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#E8EAED',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   tasksWrapper: {
     paddingTop: 80,
@@ -91,10 +93,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
     borderRadius: 10,
-    marginTop: 60,
+    marginTop: -30,
     marginBottom: 150,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
+    
 
   },
   items: {
