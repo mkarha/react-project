@@ -83,7 +83,16 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 24,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: 'black',
+    //fontSize: 25,
+    fontWeight: '700',
+    //backgroundColor: 'white',
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    borderRadius: 10,
+    marginTop: 60,
+    marginBottom: 150,
   },
   items: {
     marginTop: 30,
