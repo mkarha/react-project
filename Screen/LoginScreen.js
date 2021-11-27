@@ -61,7 +61,7 @@ const LoginScreen = () => {
           style={styles.container}
           source={require('../Image/elephant.png')}  
         >
-            <Text>Login Screen</Text>
+            <Text style={styles.text}>Welcome to Todo!</Text>
             <View style={styles.inputContainer}> 
             <TextInput
                     placeholder="Username"
@@ -107,48 +107,59 @@ export default LoginScreen
 
 const styles = StyleSheet.create({
   container: {
-        flex: 1, 
-        justifyContent: 'center',
-        alignItems: 'center',
+      flex: 1, 
+      justifyContent: 'flex-start',
+      alignItems: 'center',
   },
-    inputContainer: {
-        width: '80%',
-    },
-    input: {
-        backgroundColor: 'white',
-        paddingHorizontal: 15,
-        paddingVertical: 10,
-        borderRadius: 10,
-        marginTop: 5,
-    },
-    buttonContainer: {
-        width: '60%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 40,
-    },
-    button: {
-        backgroundColor: '#0782f9',
-        width: '100%',
-        padding: 15,
-        borderRadius: 10,
-    },
-    buttonOutline: {
-        backgroundColor: 'white',
-        marginTop: 5,
-        borderColor: '#0782f9',
-        borderWidth: 2,
-    },
-    buttonText: {
-        color: 'white',
-        fontWeight: '700',
-        fontSize: 16,
-    },
-    buttonOutlineText: {
-        color: '#0782f9',
-        fontWeight: '700',
-        fontSize: 16,
-    },
+  inputContainer: {
+      width: '80%',
+  },
+  text: {
+      color: 'black',
+      //fontSize: 25,
+      fontWeight: '700',
+      //backgroundColor: 'white',
+      paddingHorizontal: 15,
+      paddingVertical: 10,
+      borderRadius: 10,
+      marginTop: 60,
+      marginBottom: 150,
+  },
+  input: {
+      backgroundColor: 'white',
+      paddingHorizontal: 15,
+      paddingVertical: 10,
+      borderRadius: 10,
+      marginTop: 5,
+  },
+  buttonContainer: {
+      width: '60%',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 40,
+  },
+  button: {
+      backgroundColor: '#0782f9',
+      width: '100%',
+      padding: 15,
+      borderRadius: 10,
+  },
+  buttonOutline: {
+      backgroundColor: 'white',
+      marginTop: 5,
+      borderColor: '#0782f9',
+      borderWidth: 2,
+  },
+  buttonText: {
+      color: 'white',
+      fontWeight: '700',
+      fontSize: 16,
+  },
+  buttonOutlineText: {
+      color: '#0782f9',
+      fontWeight: '700',
+      fontSize: 16,
+  },
 })
 
 
