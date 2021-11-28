@@ -3,7 +3,9 @@ import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpaci
 import Task from '../Components/Task';
 import {
   ImageBackground,
-} from 'react-native'
+} from 'react-native';
+
+import db from '../../firebase';
 
 export default function App() {
   const [task, setTask] = useState();
