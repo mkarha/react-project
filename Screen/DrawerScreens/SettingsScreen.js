@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Importing components from React 
 import React, {useState} from 'react';
 import { 
@@ -49,56 +50,37 @@ export default function App() {
         }}
         keyboardShouldPersistTaps='handled'
       >
+=======
+import React from "react";
+import { ImageBackground, StyleSheet, Text, View } from "react-native";
 
-      {/* Today's Tasks are inputted here */}
-      <View style={styles.tasksWrapper}>
-        <Text style={styles.sectionTitle}>Today's tasks</Text>
-        <View style={styles.items}>
-          {/* And this is where all the tasks will go */}
-          {
-            taskItems.map((item, index) => {
-              return (
-                <TouchableOpacity key={index}  onPress={() => completeTask(index)}>
-                  <Task text={item} /> 
-                </TouchableOpacity>
-              )
-            })
-          }
-        </View>
-      </View>
-        
-      </ScrollView>
+const image = { uri: "../../Image/aboutus.png" };
+>>>>>>> 4359ad57392f64c262a4e5f2ad25ad48f3d9890d
 
-      {/* Write a task */}
-      {/* Uses a keyboard avoiding view which ensures that the keyboard does not cover any of the items on screen */}
-      <KeyboardAvoidingView 
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.writeTaskWrapper}
-      >
-        <TextInput style={styles.input} placeholder={'Write a task'} value={task} onChangeText={text => setTask(text)} />
-        <TouchableOpacity onPress={() => handleAddTask()}>
-          <View style={styles.addWrapper}>
-            <Text style={styles.addText}>+</Text>
-          </View>
-        </TouchableOpacity>
-      </KeyboardAvoidingView>
-      
-      </ImageBackground>//</View>
-  );
-}
-// Stylings for the app...
+const App = () => (
+  <View style={styles.container}>
+    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+      <Text style={styles.text}>Pillua</Text>
+    </ImageBackground>
+  </View>
+);
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+<<<<<<< HEAD
     //backgroundColor: '#E8EAED',
     //justifyContent: 'center',
     //alignItems: 'center',
     resizeMode: 'cover',
+=======
+>>>>>>> 4359ad57392f64c262a4e5f2ad25ad48f3d9890d
   },
-  tasksWrapper: {
-    paddingTop: 80,
-    paddingHorizontal: 20,
+  image: {
+    flex: 1,
+    justifyContent: "center"
   },
+<<<<<<< HEAD
   sectionTitle: {
     fontSize: 24,
     fontWeight: 'bold',
@@ -111,37 +93,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginTop: -30,
     
-
-  },
-  items: {
-    marginTop: 30,
-  },
-  writeTaskWrapper: {
-    position: 'absolute',
-    bottom: 60,
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center'
-  },
-  input: {
-    paddingVertical: 15,
-    paddingHorizontal: 15,
-    backgroundColor: '#FFF',
-    borderRadius: 60,
-    borderColor: '#C0C0C0',
-    borderWidth: 1,
-    width: 250,
-  },
-  addWrapper: {
-    width: 60,
-    height: 60,
-    backgroundColor: '#FFF',
-    borderRadius: 60,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderColor: '#C0C0C0',
-    borderWidth: 1,
-  },
-  addText: {},
+=======
+  text: {
+    color: "white",
+    fontSize: 42,
+    lineHeight: 84,
+    fontWeight: "bold",
+    textAlign: "center",
+    backgroundColor: "#000000c0"
+  }
 });
+>>>>>>> 4359ad57392f64c262a4e5f2ad25ad48f3d9890d
+
+export default App;
