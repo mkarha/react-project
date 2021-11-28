@@ -1,23 +1,31 @@
 import React from "react";
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import { ImageBackground, StyleSheet, Text, View, Image } from "react-native";
 
-const image = { uri: "../../Image/aboutus.png" };
+const image = "../../Image/aboutus.png";
 
 const App = () => (
   <View style={styles.container}>
-    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+    <Image 
+    source={require("../../Image/aboutus.png")} 
+    style={styles.image} />
       <Text style={styles.text}>Pillua</Text>
-    </ImageBackground>
+    
   </View>
 );
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: "flex-start",
+    alignItems: 'center',
   },
   image: {
-    flex: 1,
-    justifyContent: "center"
+    flex: 0.5,  
+    marginTop: 100, 
+    marginBottom: 100,
+    justifyContent: "center",
+    resizeMode: "contain",
+
   },
   text: {
     color: "white",
@@ -25,7 +33,7 @@ const styles = StyleSheet.create({
     lineHeight: 84,
     fontWeight: "bold",
     textAlign: "center",
-    backgroundColor: "#000000c0"
+    backgroundColor: "#000000c0",
   }
 });
 

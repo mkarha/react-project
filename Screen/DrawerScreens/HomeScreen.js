@@ -14,7 +14,7 @@ import {
   ImageBackground,
 } from 'react-native';
 
-import db from '../../firebase'
+import db from '../../firebase';
 
 export default function App() {
   const [task, setTask] = useState();
