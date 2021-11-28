@@ -13,7 +13,7 @@ import LoginScreen from './Screen/LoginScreen';
 import RegisterScreen from './Screen/RegisterScreen';
 import DrawerNavigationRoutes from './Screen/DrawerNavigationRoutes';
 import HomeScreen from './Screen/DrawerScreens/HomeScreen';
-import SettingsScreen from './Screen/DrawerScreens/SettingsScreen';
+import AboutScreen from './Screen/DrawerScreens/AboutScreen';
 import LogoutScreen from './Screen/DrawerScreens/LogoutScreen';
 
 const Stack = createStackNavigator();
@@ -69,7 +69,7 @@ const App = () => {
                 <Stack.Navigator initialRouteName="SplashScreen">
                 {/* SplashScreen which will come once for 5 Seconds */}
                 <Stack.Screen name="Help" component={Help} />
-                <Stack.Screen name="Settings" component={SettingsScreen} />
+                <Stack.Screen name="About" component={AboutScreen} />
             </Stack.Group>
         </Stack.Navigator>
     </NavigationContainer>

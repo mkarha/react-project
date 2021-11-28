@@ -16,7 +16,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import SplashScreen from '../SplashScreen';
 //import { back } from 'react-native/Libraries/Animated/src/Easing';
 import LoginScreen from '../LoginScreen';
-import SettingsScreen from '../DrawerScreens/SettingsScreen';
+import AboutScreen from '../DrawerScreens/AboutScreen';
 
 const CustomSidebarMenu = (props) => {
   return (
@@ -24,11 +24,11 @@ const CustomSidebarMenu = (props) => {
       <View style={stylesSidebar.profileHeader}>
         <View style={stylesSidebar.profileHeaderPicCircle}>
           <Text style={{fontSize: 25, color: '#307ecc'}}>
-            {'About React'.charAt(0)}
+            {'Todo'.charAt(0)}
           </Text>
         </View>
         <Text style={stylesSidebar.profileHeaderText}>
-          AboutReact
+          Todo
         </Text>
       </View>
       <View style={stylesSidebar.profileHeaderLine} />

@@ -12,7 +12,7 @@ import SplashScreen from './Screen/SplashScreen';
 import LoginScreen from './Screen/LoginScreen';
 import DrawerNavigationRoutes from './Screen/DrawerNavigationRoutes';
 import HomeScreen from './Screen/DrawerScreens/HomeScreen';
-import SettingsScreen from './Screen/DrawerScreens/SettingsScreen';
+import AboutScreen from './Screen/DrawerScreens/AboutScreen';
 import LogoutScreen from './Screen/DrawerScreens/LogoutScreen';
 
 const Stack = createStackNavigator();
@@ -55,7 +55,7 @@ const App = () => {
           options={{headerShown: false}}
         />
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Settings" component={SettingsScreen}  />
+        <Stack.Screen name="About" component={AboutScreen}  />
         <Stack.Screen name="Logout" component={LogoutScreen} />
       </Stack.Navigator>
     </NavigationContainer>

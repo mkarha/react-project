@@ -7,7 +7,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 
 // Import Screens
 import HomeScreen from './DrawerScreens/HomeScreen';
-import SettingsScreen from './DrawerScreens/SettingsScreen';
+import AboutScreen from './DrawerScreens/AboutScreen';
 import LogoutScreen from './DrawerScreens/LogoutScreen';
 import LoginScreen from './LoginScreen';
 import CustomSidebarMenu from './Components/CustomSidebarMenu';
@@ -43,7 +43,7 @@ const homeScreenStack = ({navigation}) => {
 const settingScreenStack = ({navigation}) => {
   return (
     <Stack.Navigator
-      initialRouteName="SettingsScreen"
+      initialRouteName="AboutScreen"
       screenOptions={{
         headerLeft: () => (
           <NavigationDrawerHeader navigationProps={navigation} />
@@ -57,10 +57,10 @@ const settingScreenStack = ({navigation}) => {
         },
       }}>
       <Stack.Screen
-        name="SettingsScreen"
-        component={SettingsScreen}
+        name="AboutScreen"
+        component={AboutScreen}
         options={{
-          title: 'Settings', //Set Header Title
+          title: 'About', //Set Header Title
         }}
       />
     </Stack.Navigator>
@@ -117,8 +117,8 @@ const DrawerNavigatorRoutes = (props) => {
         component={homeScreenStack}
       />
       <Drawer.Screen
-        name="settingScreenStack"
-        options={{drawerLabel: 'Setting Screen'}}
+        name="aboutScreenStack"
+        options={{drawerLabel: 'About Us'}}
         component={settingScreenStack}
       />
       <Drawer.Screen

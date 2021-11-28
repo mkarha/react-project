@@ -8,8 +8,11 @@ const App = () => (
     <Image 
     source={require("../../Image/aboutus.png")} 
     style={styles.image} />
-      <Text style={styles.text}>Pillua</Text>
-    
+      <Text style={styles.text}>mikko.karhavirta@student.laurea.fi</Text>
+      <Text style={styles.text}>marko.laaksonen@student.laurea.fi</Text>
+      <Image 
+        source={require("../../Image/laurea.png")} 
+        style={styles.image} />
   </View>
 );
 
@@ -20,20 +23,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    flex: 0.5,  
-    marginTop: 100, 
-    marginBottom: 100,
+    flex: 1,  
+    marginTop: 10, 
+    marginBottom: 60,
     justifyContent: "center",
     resizeMode: "contain",
 
   },
   text: {
-    color: "white",
-    fontSize: 42,
+    color: "black",
+    fontSize: 15,
     lineHeight: 84,
     fontWeight: "bold",
     textAlign: "center",
-    backgroundColor: "#000000c0",
+    //backgroundColor: "#000000c0",
   }
 });
 
