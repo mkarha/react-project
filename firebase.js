@@ -5,6 +5,7 @@ import * as firebase from "firebase";
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { initializeApp } from "firebase/app";
 
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCO1mL5hsiKqe9OWuTvo2Gb_HzyfVeRJzo",

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { 
   KeyboardAvoidingView, 
   StyleSheet, 
@@ -7,7 +7,8 @@ import {
   TextInput, 
   TouchableOpacity, 
   Keyboard, 
-  ScrollView 
+  ScrollView,
+  Button,
 } from 'react-native';
 import Task from '../Components/Task';
 import {
@@ -15,15 +16,25 @@ import {
 } from 'react-native';
 
 import db from '../../firebase';
+import firebase from 'firebase';
 
 export default function App() {
-  const [task, setTask] = useState();
-  const [taskItems, setTaskItems] = useState([]);
+  //const [task, setTask] = useState();
+  //const [taskItems, setTaskItems] = useState([]);
 
   const handleAddTask = () => {
+    db
+            .createUserWithEmailAndPassword(email, password)
+            .then(userCredentials => {
+                const user = userCredentials.user;
+                console.log('Registered with: ', user.email);
+            })
+        .catch(error => alert(error.message))
+    /*
     Keyboard.dismiss();
     setTaskItems([...taskItems, task])
     setTask(null);
+    */
   }
 
   const completeTask = (index) => {
@@ -31,6 +42,35 @@ export default function App() {
     itemsCopy.splice(index, 1);
     setTaskItems(itemsCopy)
   }
+
+  const [taskItems, setTaskItems] = useState([]);
+	const [task, setTask] = useState('');
+  /*
+    const [todos, setTodos] = useState([]);
+	  const [input, setInput] = useState('');
+  */
+	
+	useEffect(() => {
+    console.log("efekti")
+		db.collection("users").onSnapshot(snapshot => {
+				setTaskItems(snapshot.docs.map(doc => doc.data().todo))
+		})
+	}, []);
+	
+	const addTodo = (event) => {
+    console.log("olet addodossa")
+		//event.preventDefault();
+		db.collection("users").add({
+		r
+		//timestamp: firebase.firestore.FieldValue.serverTimestamp()
+		});
+    
+		
+		setTaskItems([...taskItems, task]);
+		setTask('');
+		console.log("mitvit");
+	}
+
 
   return (
       <ImageBackground
@@ -71,12 +111,15 @@ export default function App() {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTaskWrapper}
       >
-        <TextInput style={styles.input} placeholder={'Write a task'} value={task} onChangeText={text => setTask(text)} />
-        <TouchableOpacity onPress={() => handleAddTask()}>
+        <TextInput style={styles.input} placeholder={'Write a task'} value={task} onChange={event => setTask(event.target.value)} />
+        <TouchableOpacity onPress={addTodo} >
           <View style={styles.addWrapper}>
             <Text style={styles.addText}>+</Text>
           </View>
         </TouchableOpacity>
+        
+        
+        
       </KeyboardAvoidingView>
       
       </ImageBackground>//</View>
@@ -141,3 +184,4 @@ const styles = StyleSheet.create({
   },
   addText: {},
 });
+
