@@ -1,18 +1,12 @@
-// Importing components from React 
 import React, {useState} from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
 import Task from '../Components/Task';
 import {
   ImageBackground,
-<<<<<<< HEAD
 } from 'react-native';
 
-import db from '../../firebase';
+import db from '../../firebase'
 
-=======
-} from 'react-native'
-// Setting up the function for creating tasks
->>>>>>> 860870d59e38b7e08eac4ceedeacfe13564d5e9c
 export default function App() {
   const [task, setTask] = useState();
   const [taskItems, setTaskItems] = useState([]);
@@ -28,7 +22,7 @@ export default function App() {
     itemsCopy.splice(index, 1);
     setTaskItems(itemsCopy)
   }
-// Used creative commons images as our backdrop...
+
   return (
       <ImageBackground
         style={styles.container}
@@ -43,11 +37,11 @@ export default function App() {
         keyboardShouldPersistTaps='handled'
       >
 
-      {/* Today's Tasks are inputted here */}
+      {/* Today's Tasks */}
       <View style={styles.tasksWrapper}>
         <Text style={styles.sectionTitle}>Today's tasks</Text>
         <View style={styles.items}>
-          {/* And this is where all the tasks will go */}
+          {/* This is where the tasks will go! */}
           {
             taskItems.map((item, index) => {
               return (
@@ -63,7 +57,7 @@ export default function App() {
       </ScrollView>
 
       {/* Write a task */}
-      {/* Uses a keyboard avoiding view which ensures that the keyboard does not cover any of the items on screen */}
+      {/* Uses a keyboard avoiding view which ensures the keyboard does not cover the items on screen */}
       <KeyboardAvoidingView 
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTaskWrapper}
@@ -79,7 +73,7 @@ export default function App() {
       </ImageBackground>//</View>
   );
 }
-// Stylings for the app...
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -102,7 +96,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 10,
     marginTop: -30,
-    marginBottom: 150,
+    //marginBottom: 150,
     
 
   },

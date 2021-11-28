@@ -1,11 +1,23 @@
 // Importing components from React 
 import React, {useState} from 'react';
-import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
+import { 
+  KeyboardAvoidingView, 
+  StyleSheet, 
+  Text, 
+  View, 
+  TextInput, 
+  TouchableOpacity, 
+  Keyboard, 
+  ScrollView,
+  Image,
+} from 'react-native';
 import Task from '../Components/Task';
 import {
   ImageBackground,
 } from 'react-native'
 // Setting up the function for creating tasks
+
+
 export default function App() {
   const [task, setTask] = useState();
   const [taskItems, setTaskItems] = useState([]);
@@ -24,8 +36,10 @@ export default function App() {
 // Used creative commons images as our backdrop...
   return (
       <ImageBackground
-        style={styles.container}
-        source={require('../../Image/aboutus.png')}  
+        style={styles.container}  
+        source={require('../../Image/aboutus.png')}
+             
+        
       >
     
       {/* Added this scroll view to enable scrolling when list gets longer than the page */}
@@ -76,9 +90,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E8EAED',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
+    //backgroundColor: '#E8EAED',
+    //justifyContent: 'center',
+    //alignItems: 'center',
+    resizeMode: 'cover',
   },
   tasksWrapper: {
     paddingTop: 80,
@@ -95,7 +110,6 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 10,
     marginTop: -30,
-    marginBottom: 150,
     
 
   },
