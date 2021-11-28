@@ -1,10 +1,11 @@
+// Importing components from React 
 import React, {useState} from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
 import Task from '../Components/Task';
 import {
   ImageBackground,
 } from 'react-native'
-
+// Setting up the function for creating tasks
 export default function App() {
   const [task, setTask] = useState();
   const [taskItems, setTaskItems] = useState([]);
@@ -20,7 +21,7 @@ export default function App() {
     itemsCopy.splice(index, 1);
     setTaskItems(itemsCopy)
   }
-
+// Used creative commons images as our backdrop...
   return (
       <ImageBackground
         style={styles.container}
@@ -35,11 +36,11 @@ export default function App() {
         keyboardShouldPersistTaps='handled'
       >
 
-      {/* Today's Tasks */}
+      {/* Today's Tasks are inputted here */}
       <View style={styles.tasksWrapper}>
         <Text style={styles.sectionTitle}>Today's tasks</Text>
         <View style={styles.items}>
-          {/* This is where the tasks will go! */}
+          {/* And this is where all the tasks will go */}
           {
             taskItems.map((item, index) => {
               return (
@@ -55,7 +56,7 @@ export default function App() {
       </ScrollView>
 
       {/* Write a task */}
-      {/* Uses a keyboard avoiding view which ensures the keyboard does not cover the items on screen */}
+      {/* Uses a keyboard avoiding view which ensures that the keyboard does not cover any of the items on screen */}
       <KeyboardAvoidingView 
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTaskWrapper}
@@ -71,7 +72,7 @@ export default function App() {
       </ImageBackground>//</View>
   );
 }
-
+// Stylings for the app...
 const styles = StyleSheet.create({
   container: {
     flex: 1,
