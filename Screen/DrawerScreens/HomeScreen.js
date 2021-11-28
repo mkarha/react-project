@@ -1,5 +1,14 @@
 import React, {useState} from 'react';
-import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
+import { 
+  KeyboardAvoidingView, 
+  StyleSheet, 
+  Text, 
+  View, 
+  TextInput, 
+  TouchableOpacity, 
+  Keyboard, 
+  ScrollView 
+} from 'react-native';
 import Task from '../Components/Task';
 import {
   ImageBackground,
