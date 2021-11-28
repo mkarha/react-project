@@ -4,8 +4,15 @@ import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpaci
 import Task from '../Components/Task';
 import {
   ImageBackground,
+<<<<<<< HEAD
+} from 'react-native';
+
+import db from '../../firebase';
+
+=======
 } from 'react-native'
 // Setting up the function for creating tasks
+>>>>>>> 860870d59e38b7e08eac4ceedeacfe13564d5e9c
 export default function App() {
   const [task, setTask] = useState();
   const [taskItems, setTaskItems] = useState([]);
