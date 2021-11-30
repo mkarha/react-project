@@ -12,7 +12,8 @@ import {
     ImageBackground,
  } from 'react-native'
 
-import { auth } from '../firebase'
+import { auth } from '../firebase';
+import db from '../firebase';
 
 const LoginScreen = () => {
 
@@ -38,6 +39,11 @@ const LoginScreen = () => {
             .then(userCredentials => {
                 const user = userCredentials.user;
                 console.log('Registered with: ', user.email);
+                db
+                  .collection(user.email)
+                  .add({
+                    todo: (''),
+                  })
             })
         .catch(error => alert(error.message))
     }
@@ -48,6 +54,7 @@ const LoginScreen = () => {
             .then(userCredentials => {
                 const user = userCredentials.user;
                 console.log('Logged in with: ', user.email);
+                //const userDocument = db.collection('users').doc(user.email)
             })
         .catch(error => alert(error.message))
     }

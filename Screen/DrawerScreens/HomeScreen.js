@@ -17,11 +17,12 @@ import {
 
 import db from '../../firebase';
 import firebase from 'firebase';
+import { auth } from '../../firebase';
 
 export default function App() {
   //const [task, setTask] = useState();
   //const [taskItems, setTaskItems] = useState([]);
-
+  
   const handleAddTask = () => {
     db
             .createUserWithEmailAndPassword(email, password)
@@ -44,30 +45,31 @@ export default function App() {
   }
 
   const [taskItems, setTaskItems] = useState([]);
-	const [task, setTask] = useState('');
+	const [input, setTask] = useState('');
   /*
     const [todos, setTodos] = useState([]);
 	  const [input, setInput] = useState('');
   */
 	
 	useEffect(() => {
-    console.log("efekti")
+    var em = auth.currentUser?.email;
+    console.log("efekti"+em)
 		db.collection("users").onSnapshot(snapshot => {
-				setTaskItems(snapshot.docs.map(doc => doc.data().todo))
+				setTaskItems(snapshot.docs.map(doc => doc.data().email))
 		})
 	}, []);
 	
 	const addTodo = (event) => {
     console.log("olet addodossa")
 		//event.preventDefault();
-		db.collection("users").add({
-		r
+      db.collection(auth.currentUser?.email).add({
+        todo: input,
 		//timestamp: firebase.firestore.FieldValue.serverTimestamp()
 		});
     
 		
-		setTaskItems([...taskItems, task]);
-		setTask('');
+		setTaskItems([...taskItems, input]);
+		setTask();
 		console.log("mitvit");
 	}
 
@@ -111,8 +113,12 @@ export default function App() {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTaskWrapper}
       >
-        <TextInput style={styles.input} placeholder={'Write a task'} value={task} onChange={event => setTask(event.target.value)} />
-        <TouchableOpacity onPress={addTodo} >
+        <TextInput 
+          style={styles.input} 
+          placeholder={'Write a task'} 
+          value={input} 
+          onChange={event => setTask(event.target.value)} />
+        <TouchableOpacity onPress={addTodo}>
           <View style={styles.addWrapper}>
             <Text style={styles.addText}>+</Text>
           </View>
