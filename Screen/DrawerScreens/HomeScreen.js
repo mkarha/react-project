@@ -23,6 +23,14 @@ export default function App() {
 
   const [task, setTask] = useState('')
   const [taskItems, setTaskItems] = useState([]);
+
+  useEffect(() => {
+    var em = auth.currentUser?.email;
+    console.log("efekti"+em)
+		db.collection(auth.currentUser?.email).onSnapshot(snapshot => {
+				setTaskItems(snapshot.docs.map(doc => doc.data().Todo))
+		})
+	}, []);
   
   const addTodo = () => {
     console.log(task)
@@ -31,10 +39,23 @@ export default function App() {
     .collection(auth.currentUser?.email)
     .add({
       Todo: todo,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     })
     setTaskItems([...taskItems, task]);
 		setTask();
 		console.log("mitvit");
+  }
+
+  const completeTask = (index) => {
+    let itemsCopy = [...taskItems];
+    
+    itemsCopy.splice(index, 1);
+    setTaskItems(itemsCopy)
+    db.collection(auth.currentUser?.email).doc().delete().then(() => {
+      console.log("Document successfully deleted!");
+  }).catch((error) => {
+      console.error("Error removing document: ", error);
+  });
   }
 
     return (
@@ -46,7 +67,34 @@ export default function App() {
           style={styles.container}
           source={require('../../Image/elephant.png')}  
         >
-            <Text style={styles.text}>Welcome to Todo!</Text>
+
+          {/* Added this scroll view to enable scrolling when list gets longer than the page */}
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1
+        }}
+        keyboardShouldPersistTaps='handled'
+      >
+
+      {/* Today's Tasks */}
+      <View style={styles.tasksWrapper}>
+        <Text style={styles.sectionTitle}>Welcome to Todo!</Text>
+        <View style={styles.items}>
+          {/* This is where the tasks will go! */}
+          {
+            taskItems.map((item, index) => {
+              return (
+                <TouchableOpacity key={index}  onPress={() => completeTask(index)}>
+                  <Task text={item} /> 
+                </TouchableOpacity>
+              )
+            })
+          }
+        </View>
+      </View>
+        
+      </ScrollView>
+            
             <KeyboardAvoidingView 
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTaskWrapper}
