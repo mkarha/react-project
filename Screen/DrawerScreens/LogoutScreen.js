@@ -23,12 +23,17 @@ const LogoutScreen = () => {
           style={styles.container}
           source={require('../../Image/bye.png')}  
         >
-      <Text>Email: {auth.currentUser?.email}</Text>
+          <View style={styles.innerContainer}>
+      <Text style={styles.buttonText}>Bye, bye!</Text>
+        <Text style={styles.buttonText}>{auth.currentUser?.email}</Text>
+        <Text style={styles.buttonText}> hope to see you soon!</Text>
+        </View>
       <TouchableOpacity
         onPress={handleSignOut}
         style={styles.button}
       >
-        <Text style={styles.buttonText}>Sign out {auth.currentUser?.username}</Text>
+        
+        <Text style={styles.text}>Sign out</Text>
       </TouchableOpacity>
     </ImageBackground>
   )
@@ -46,6 +51,11 @@ const styles = StyleSheet.create({
     inputContainer: {
         width: '80%',
     },
+    innerContainer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 110,
+    },
     input: {
         backgroundColor: 'white',
         paddingHorizontal: 15,
@@ -61,9 +71,10 @@ const styles = StyleSheet.create({
     },
     button: {
         backgroundColor: '#0782f9',
-        width: '100%',
+        width: '80%',
         padding: 15,
         borderRadius: 10,
+        alignItems: 'center',
     },
     buttonOutline: {
         backgroundColor: 'white',
@@ -72,14 +83,18 @@ const styles = StyleSheet.create({
         borderWidth: 2,
     },
     buttonText: {
-        color: 'white',
+        color: '#000',
         fontWeight: '700',
-        fontSize: 16,
+        fontSize: 18,
     },
     buttonOutlineText: {
         color: '#0782f9',
         fontWeight: '700',
         fontSize: 16,
     },
+    text: {
+      fontSize: 25,
+      color: '#000',
+      fontWeight: '700',
+    }
 })
-
