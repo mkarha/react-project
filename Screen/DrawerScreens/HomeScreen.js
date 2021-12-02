@@ -33,6 +33,7 @@ export default function App() {
 	}, []);
   
   const addTodo = () => {
+    if(setTask.length>0){
     console.log(task)
     var todo = task
     db
@@ -41,28 +42,34 @@ export default function App() {
       Todo: todo,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     })
+  }
+  
     setTaskItems([...taskItems, task]);
 		setTask();
 		console.log("mitvit");
   }
 
+
   const completeTask = (index) => {
     let itemsCopy = [...taskItems];
-    
     itemsCopy.splice(index, 1);
     setTaskItems(itemsCopy)
-    db.collection(auth.currentUser?.email).doc().delete().then(() => {
-      console.log("Document successfully deleted!");
-  }).catch((error) => {
-      console.error("Error removing document: ", error);
+    var i = 0
+    var id
+    db.collection(auth.currentUser?.email).get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+          console.log(doc.id, " => ", doc.data());
+          if (i == index) {
+            db.collection(auth.currentUser?.email).doc(doc.id).delete()
+          }
+          i++
+      });
   });
+  
   }
 
     return (
-        /*<SafeAreaView
-            style={styles.container}
-            behavior="padding"
-        >*/
+       
         <ImageBackground
           style={styles.container}
           source={require('../../Image/elephant.png')}  
@@ -82,10 +89,10 @@ export default function App() {
         <View style={styles.items}>
           {/* This is where the tasks will go! */}
           {
-            taskItems.map((item, index) => {
+            taskItems.map((task, index) => {
               return (
                 <TouchableOpacity key={index}  onPress={() => completeTask(index)}>
-                  <Task text={item} /> 
+                  <Task text={task} /> 
                 </TouchableOpacity>
               )
             })

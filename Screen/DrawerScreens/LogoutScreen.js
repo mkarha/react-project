@@ -28,7 +28,7 @@ const LogoutScreen = () => {
         onPress={handleSignOut}
         style={styles.button}
       >
-        <Text style={styles.buttonText}>Sign out</Text>
+        <Text style={styles.buttonText}>Sign out {auth.currentUser?.username}</Text>
       </TouchableOpacity>
     </ImageBackground>
   )
