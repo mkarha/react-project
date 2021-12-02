@@ -10,6 +10,7 @@ import {
     View,
     Image,
     ImageBackground,
+    Keyboard,
  } from 'react-native'
 
 import { auth } from '../firebase';
@@ -61,6 +62,7 @@ const LoginScreen = () => {
             <Text style={styles.text}>Welcome to Todo!</Text>
             <View style={styles.inputContainer}> 
                 <TextInput
+                    keyboardType="email-address"
                     placeholder="Email"
                     value={email}
                     onChangeText={text => setEmail(text)}

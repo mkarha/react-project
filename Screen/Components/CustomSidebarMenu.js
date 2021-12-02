@@ -1,6 +1,12 @@
 // Import React and Component
 import React from 'react';
-import {View, Text, Alert, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View, 
+  Text, 
+  Alert, 
+  StyleSheet, 
+  TouchableOpacity,
+} from 'react-native';
 
 import {
   DrawerContentScrollView,
