@@ -26,7 +26,7 @@ export default function App() {
 
   useEffect(() => {
     var em = auth.currentUser?.email;
-		db.collection(auth.currentUser?.email).onSnapshot(snapshot => {
+		db.collection(auth.currentUser?.email).orderBy('timestamp').onSnapshot(snapshot => {
 				setTaskItems(snapshot.docs.map(doc => doc.data().Todo))
 		})
 	}, []);
