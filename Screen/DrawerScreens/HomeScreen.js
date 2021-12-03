@@ -71,11 +71,11 @@ export default function App() {
           style={styles.container}
           source={require('../../Image/elephant.png')}  
         >
-
+          <View style={styles.scrollContainer}>
           {/* Added this scroll view to enable scrolling when list gets longer than the page */}
       <ScrollView
         contentContainerStyle={{
-          flexGrow: 1
+          flexGrow: 1,
         }}
         keyboardShouldPersistTaps='handled'
       >
@@ -98,7 +98,8 @@ export default function App() {
       </View>
         
       </ScrollView>
-            
+      </View>
+       
         <KeyboardAvoidingView 
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTaskWrapper}
@@ -124,9 +125,10 @@ export default function App() {
                     </View>
                 </TouchableOpacity>
                 
-                
-            </View>
+                </View>
+            
             </KeyboardAvoidingView>
+            
             </ImageBackground>
         //</SafeAreaView>
     )
@@ -139,8 +141,12 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
+  scrollContainer: {
+    marginBottom: 120,
+    marginTop: 50,
+  },
   tasksWrapper: {
-    paddingTop: 80,
+    paddingTop: 50,
     paddingHorizontal: 20,
   },
   sectionTitle: {
@@ -153,7 +159,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
     borderRadius: 10,
-    marginTop: -30,
+    marginTop: -50,
     //marginBottom: 150,
     
 
@@ -167,7 +173,8 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: -20,
   },
   input: {
     paddingVertical: 15,
@@ -177,6 +184,9 @@ const styles = StyleSheet.create({
     borderColor: '#C0C0C0',
     borderWidth: 1,
     width: 250,
+  },
+  inputContainer: {
+    
   },
   addWrapper: {
     width: 60,
