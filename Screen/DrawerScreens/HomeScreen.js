@@ -109,7 +109,7 @@ export default function App() {
                 <TextInput
                     placeholder="Task"
                     value={task}
-                    onChangeText={text => setTask(text).preventDefsult()}                    
+                    onChangeText={text => setTask(text)}                    
                     style={styles.input}
                 />
                 
