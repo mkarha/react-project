@@ -32,7 +32,6 @@ export default function App() {
 	}, []);
   
   const addTodo = () => {
-    if(setTask.length>0){
     console.log(task)
     var todo = task
     db
@@ -41,10 +40,10 @@ export default function App() {
       Todo: todo,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     })
-  }
+  
   
     setTaskItems([...taskItems, task]);
-		setTask();
+		setTask('');
   }
 
 
@@ -100,7 +99,7 @@ export default function App() {
         
       </ScrollView>
             
-            <KeyboardAvoidingView 
+        <KeyboardAvoidingView 
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTaskWrapper}
       >
@@ -110,7 +109,7 @@ export default function App() {
                 <TextInput
                     placeholder="Task"
                     value={task}
-                    onChangeText={text => setTask(text)}
+                    onChangeText={text => setTask(text).preventDefsult()}                    
                     style={styles.input}
                 />
                 
