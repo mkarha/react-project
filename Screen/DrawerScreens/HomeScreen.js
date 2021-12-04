@@ -25,8 +25,9 @@ export default function App() {
   const [taskItems, setTaskItems] = useState([]);
 
   useEffect(() => {
-    var em = auth.currentUser?.email;
-		db.collection(auth.currentUser?.email).orderBy('timestamp').onSnapshot(snapshot => {
+		db.collection(auth.currentUser?.email)
+      .orderBy('timestamp')
+      .onSnapshot(snapshot => {
 				setTaskItems(snapshot.docs.map(doc => doc.data().Todo))
 		})
 	}, []);
@@ -35,9 +36,9 @@ export default function App() {
     console.log(task)
     var todo = task
     db
-    .collection(auth.currentUser?.email)
-    .add({
-      Todo: todo,
+      .collection(auth.currentUser?.email)
+      .add({
+      Todo: task,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     })
   
@@ -50,10 +51,13 @@ export default function App() {
   const completeTask = (index) => {
     let itemsCopy = [...taskItems];
     itemsCopy.splice(index, 1);
-    setTaskItems(itemsCopy)
+    setTaskItems([...taskItems])
     var i = 0
     var id
-    db.collection(auth.currentUser?.email).get().then((querySnapshot) => {
+    db.collection(auth.currentUser?.email)
+      .orderBy('timestamp')
+      .get()
+      .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
           console.log(doc.id, " => ", doc.data());
           if (i == index) {
@@ -88,7 +92,10 @@ export default function App() {
           {
             taskItems.map((task, index) => {
               return (
-                <TouchableOpacity key={index}  onPress={() => completeTask(index)}>
+                <TouchableOpacity 
+                  key={index}  
+                  onPress={() => completeTask(index)}
+                >
                   <Task text={task} /> 
                 </TouchableOpacity>
               )

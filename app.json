@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "react-project",
-    "slug": "react-project",
+    "name": "Dodo",
+    "slug": "Dodo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/finger.png",
@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.dodo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
