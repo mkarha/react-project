@@ -9,6 +9,7 @@ import {
   Keyboard, 
   ScrollView,
   Button,
+  Alert,
 } from 'react-native';
 import Task from '../Components/Task';
 import {
@@ -18,11 +19,15 @@ import {
 import db from '../../firebase';
 import firebase from 'firebase';
 import { auth } from '../../firebase';
+import DatePicker from 'react-datepicker';
+
+//import 'react-datepicker/dist/react-datepicker.css';
 
 export default function App() {
 
   const [task, setTask] = useState('')
   const [taskItems, setTaskItems] = useState([]);
+  const [dueDate, setDueDate] = useState(new Date());
 
   useEffect(() => {
 		db.collection(auth.currentUser?.email)
@@ -33,12 +38,13 @@ export default function App() {
 	}, []);
   
   const addTodo = () => {
-    console.log(task)
+    //console.log(task)
     var todo = task
     db
       .collection(auth.currentUser?.email)
       .add({
       Todo: task,
+      duedate: dueDate,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     })
   
@@ -59,7 +65,7 @@ export default function App() {
       .get()
       .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-          console.log(doc.id, " => ", doc.data());
+          //console.log(doc.id, " => ", doc.data());
           if (i == index) {
             db.collection(auth.currentUser?.email).doc(doc.id).delete()
           }
@@ -94,7 +100,31 @@ export default function App() {
               return (
                 <TouchableOpacity 
                   key={index}  
-                  onPress={() => completeTask(index)}
+
+
+
+                  onPress={() => {
+                    Alert.alert(
+                      'Task completed!',
+                      '',
+                      [
+                        {
+                          text: 'Cancel',
+                          onPress: () => {
+                            return null;
+                          },
+                        },
+                        {
+                          text: 'Confirm',
+                          onPress: () => completeTask(index),
+                        },
+                      ],
+                      {cancelable: false},
+                    );
+                  }}
+
+
+                  //onPress={() => completeTask(index)}
                 >
                   <Task text={task} /> 
                 </TouchableOpacity>
@@ -121,12 +151,14 @@ export default function App() {
                     style={styles.input}
                 />
                 
+                
             </View>
 
             <View style={styles.buttonContainer}>
                 
                 <TouchableOpacity
-                    onPress={addTodo}>
+                    onPress={
+                      addTodo}>
                   <View style={styles.addWrapper}>
                     <Text style={styles.addText}>+</Text>
                     </View>
